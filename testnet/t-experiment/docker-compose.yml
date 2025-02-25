@@ -1,0 +1,39 @@
+
+services:
+  test-aid1:
+    image: naeural/edge_node:testnet
+    container_name: test-aid1
+    restart: always
+    volumes:
+      - tr1v:/edge_node/_local_cache
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"         
+      - "com.centurylinklabs.watchtower.stop-signal=SIGINT"          
+
+  test-aid2:
+    image: naeural/edge_node:testnet
+    container_name: test-aid2
+    restart: always
+    volumes:
+      - tr2v:/edge_node/_local_cache
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"         
+      - "com.centurylinklabs.watchtower.stop-signal=SIGINT"              
+
+
+  watchtower:
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=60 # Check every 1 minute
+      - WATCHTOWER_CHECK_NEW_IMAGES=true      
+      - WATCHTOWER_LABEL_ENABLE=true        
+
+volumes:
+  tr1v:
+    external: true      
+  tr2v:
+    external: true

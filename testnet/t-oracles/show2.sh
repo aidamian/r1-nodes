@@ -1,0 +1,1 @@
+docker logs -f tr1s-aid02 -n 5000
