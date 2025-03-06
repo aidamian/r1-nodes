@@ -1,8 +1,8 @@
 
 services:
-  test-aid1:
+  r1node1:
     image: naeural/edge_node:testnet
-    container_name: test-aid1
+    container_name: r1node1
     restart: always
     volumes:
       - tr1v:/edge_node/_local_cache
@@ -10,9 +10,9 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"         
       - "com.centurylinklabs.watchtower.stop-signal=SIGINT"          
 
-  test-aid2:
+  r1node2:
     image: naeural/edge_node:testnet
-    container_name: test-aid2
+    container_name: r1node2
     restart: always
     volumes:
       - tr2v:/edge_node/_local_cache

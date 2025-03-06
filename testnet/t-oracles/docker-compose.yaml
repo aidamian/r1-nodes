@@ -1,7 +1,7 @@
 
 services:
   tr1s-aid01:
-    image: naeural/edge_node:testnet
+    image: ratio1/edge_node:testnet
     container_name: tr1s-aid01
     restart: always
     volumes:
@@ -11,7 +11,7 @@ services:
       - "com.centurylinklabs.watchtower.stop-signal=SIGINT"          
 
   tr1s-aid02:
-    image: naeural/edge_node:testnet
+    image: ratio1/edge_node:testnet
     container_name: tr1s-aid02
     restart: always
     volumes:

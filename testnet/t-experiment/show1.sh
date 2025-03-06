@@ -1,1 +1,1 @@
-docker logs test-aid1 -f -n 10000
+docker logs r1node1 -f -n 10000
